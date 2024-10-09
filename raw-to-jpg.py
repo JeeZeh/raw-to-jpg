@@ -6,26 +6,18 @@ from PIL import Image
 
 # params
 parser = argparse.ArgumentParser(description="Convert RAW to JPG")
-parser.add_argument(
-    "-s",
-    "--source",
-    help="Source folder of RAW files",
-    # required=True,
-    default="C:\\Users\\jesse\\OneDrive\\Pictures\\Camera\\",
-)
+parser.add_argument("-s", "--source", help="Source folder of RAW files", required=True)
 parser.add_argument(
     "-d",
     "--destination",
     help="Destination folder for converted JPG files",
-    # required=True,
-    default="C:\\Users\\jesse\\Desktop\\Camera\\",
+    required=True,
 )
 parser.add_argument(
     "-r",
     "--raw_ext",
     help="RAW format extension (e.g. CR2)",
-    # required=True,
-    default="CR2",
+    required=True,
 )
 parser.add_argument(
     "-t",
