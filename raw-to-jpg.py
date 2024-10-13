@@ -75,8 +75,7 @@ def compress_raw(
     preserve_exif=False,
     preserve_times=False,
 ):
-    # parse CR2 image
-    img = Image.open(raw_file.resolve())
+    img = Image.open(raw_file)
     dest = (destination_root / raw_file.relative_to(source_root)).with_suffix(".jpg")
 
     if dest.exists():
@@ -108,7 +107,6 @@ def compress_raw(
 if __name__ == "__main__":
     args = parse_args()
 
-    raw_file_type = ".CR2"
     src_dir = Path(args.source)
     dest_dir = Path(args.destination) if args.destination else src_dir / ".tmp"
     raw_images = list(src_dir.glob(f"**/*.{args.raw_extension}"))
